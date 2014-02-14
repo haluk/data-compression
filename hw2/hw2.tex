@@ -1,0 +1,97 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{fullpage}
+\usepackage{lastpage}
+\usepackage{titlesec}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{url}
+\usepackage[margin=3cm]{geometry}
+
+\setcounter{secnumdepth}{4}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\lstset{
+    frame=single,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{black}\hookrightarrow\space}}
+}
+\lstloadlanguages{Python}
+
+
+% Edit these as appropriate
+\newcommand\course{ELEC865}
+\newcommand\semester{Spring 2014}     % <-- current semester
+\newcommand\hwnum{2}                  % <-- homework number
+\newcommand\yourname{Haluk Dogan} % <-- your name
+\newcommand\login{66063720}           % <-- your NetID
+\newcommand\hwdate{Due: February 14, 2014}           % <-- HW due date
+
+\newenvironment{answer}[1]{
+  \subsubsection*{Problem #1}
+}
+
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\yourname\ \login\\\course\ --- \semester}
+\chead{\textbf{\Large Homework \hwnum}}
+\rhead{\hwdate}
+\headsep 15pt
+
+\begin{document}
+
+\begin{answer}{1}
+
+For this assignment, we found two text datasets which contains only English
+alphabet and punctuation marks. In order to be ensure that they have the same
+type of characters, we convert them to lowercase. The two files contain 3982
+and 3819 characters respectively. We tested the Java library we found by first
+compress one of the file, and then decompress it. We verified the compression
+and decompression by using Unix command \textit{diff}. The \textit{diff}
+command gave zero difference by comparing original file and the one after we
+obtain decompression. We also use Unix command \textit{wc} to count characters
+in the file. In the first two types of analysis we use \textit{Huffman
+coding}, and in the last one we use \textit{adaptive Huffman coding}.
+
+\paragraph*{Analysis}
+\begin{itemize}
+  \item \textbf{Analysis I:}
+    In the first type of analysis, we compress the two files with their own
+    code tree. Compression ratio for the test files are $[3982:2388]$ (1.67) and
+    $[3819:2310]$ (1.65) respectively. We obtain the original files exactly the
+    same after the decompression of compressed files.
+  \item \textbf{Analysis II:}
+    In the second type of analysis, we compress the files with the code tree
+    of other file. Compression ratio for the test files are $[3982:2390]$
+    (1.67) and $[3819:2314]$ (1.65) respectively. However, after the
+    decompression, we couldn't obtain the original files. We use the
+    \textit{Levenshtein Distance} to evaluate how close the original file and
+    the one after decompression. The \textit{Levenshtein Distances} between
+    original files and the one after the decompression are 327 and 350
+    respectively.
+  \item \textbf{Analysis III:}
+    In the third type of analysis, we compress the files and their compression
+    rates are $[3982:2346]$ (1.7) and $[3819:2271]$ (1.68). We verified that
+    we obtain the original files exactly the same after decompression of
+    compressed files.
+\end{itemize}
+
+\paragraph*{Discussion}\mbox{}\\
+In Huffman coding, we use a fixed coding table which is calculated by
+frequency distribution of the characters to be coded. In adaptive Huffman
+coding, coding table is generated individually from the character
+probabilities for the data to be coded. Although adaptive Huffman coding
+results in higher compression ratios, all the data to be compressed must be
+available before compression starts because character frequencies should be
+determined before we can determine the codes. In Huffman coding, if we use
+different coding tree other than the proper one, we get a different coding.
+\end{answer}
+
+\paragraph*{Appendix}\mbox{}\\
+Java Library: \url{https://github.com/nayuki/Huffman-Coding} \\
+My Files: \url{https://github.com/haluk/data-compression}
+\end{document}
