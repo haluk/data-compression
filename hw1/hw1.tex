@@ -1,0 +1,244 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{fullpage}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage[margin=3cm]{geometry}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\lstset{
+    frame=single,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{black}\hookrightarrow\space}}
+}
+\lstloadlanguages{Python}
+
+
+% Edit these as appropriate
+\newcommand\course{ELEC865}
+\newcommand\semester{Spring 2014}     % <-- current semester
+\newcommand\hwnum{1}                  % <-- homework number
+\newcommand\yourname{Haluk Dogan} % <-- your name
+\newcommand\login{66063720}           % <-- your NetID
+\newcommand\hwdate{Due: January 31, 2014}           % <-- HW due date
+
+\newenvironment{answer}[1]{
+  \subsubsection*{Problem #1}
+}
+
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\yourname\ \login\\\course\ --- \semester}
+\chead{\textbf{\Large Homework \hwnum}}
+\rhead{\hwdate}
+\headsep 15pt
+
+\begin{document}
+
+\begin{answer}{3}
+\begin{enumerate}[(a)]
+  \item
+    \begin{align*}
+      H &= -\sum _{ i=1 }^{ 4 }{ P(i)\log _{ 2 }{ P(i) }  } \\
+        &= -\left( \frac { 1 }{ 4 } \log _{ 2 }{ \frac { 1 }{ 4 }  } +\frac { 1 }{ 4 } \log _{ 2 }{ \frac { 1 }{ 4 }  }+\frac { 1 }{ 4 } \log _{ 2 }{ \frac { 1 }{ 4 }  }+\frac { 1 }{ 4 } \log _{ 2 }{ \frac { 1 }{ 4 }  } \right) \\
+        &= -4\left( \frac { 1 }{ 4 } \log _{ 2 }{ \frac { 1 }{ 4 }  }  \right) \\
+        &= -1(\log _{ 2 }{ 1-\log _{ 2 }{ 4) }  } \\
+        &= -1(0-\log _{ 2 }{ { 2 }^{ 2 }) } \\
+        &= -1(0-2\log _{ 2 }{ 2) }  \\
+        &= -1(-2) \\
+        &= 2
+    \end{align*}
+  \item
+    \begin{align*}
+      H &= -\sum _{ i=1 }^{ 4 }{ P(i)\log _{ 2 }{ P(i) }  } \\
+        &= -\left( \frac { 1 }{ 2 } \log _{ 2 }{ \frac { 1 }{ 2 }  } +\frac { 1 }{ 4 } \log _{ 2 }{ \frac { 1 }{ 4 }  } +\frac { 1 }{ 8 } \log _{ 2 }{ \frac { 1 }{ 8 }  } +\frac { 1 }{ 8 } \log _{ 2 }{ \frac { 1 }{ 8 }  }  \right) \\
+        &= -\left( \frac { 1 }{ 2 } \left( \log _{ 2 }{ 1-\log _{ 2 }{ 2 }  }  \right) +\frac { 1 }{ 4 } (\log _{ 2 }{ 1-\log _{ 2 }{ 4)+\frac { 1 }{ 8 } (\log _{ 2 }{ 1-\log _{ 2 }{ 8)+\frac { 1 }{ 8 } \left( \log _{ 2 }{ 1-\log _{ 2 }{ 8 }  }  \right)  }  }  }  }  \right) \\
+        &= -\left( \frac { 1 }{ 2 } \left( \log _{ 2 }{ 1-\log _{ 2 }{ 2 }  }  \right) +\frac { 1 }{ 4 } (\log _{ 2 }{ 1-\log _{ 2 }{ { 2 }^{ 2 })+\frac { 1 }{ 8 } (\log _{ 2 }{ 1-\log _{ 2 }{ { 2 }^{ 3 })+\frac { 1 }{ 8 } \left( \log _{ 2 }{ 1-\log _{ 2 }{ { 2 }^{ 3 } }  }  \right)  }  }  }  }  \right) \\
+        &= -\left( \frac { 1 }{ 2 } \left( \log _{ 2 }{ 1-\log _{ 2 }{ 2 }  }  \right) +\frac { 1 }{ 4 } (\log _{ 2 }{ 1-2\log _{ 2 }{ { 2 })+\frac { 1 }{ 8 } (\log _{ 2 }{ 1-3\log _{ 2 }{ { 2 })+\frac { 1 }{ 8 } \left( \log _{ 2 }{ 1-3\log _{ 2 }{ { 2 } }  }  \right)  }  }  }  }  \right) \\
+        &= -\left( -\frac { 1 }{ 2 } -\frac { 2 }{ 4 } -\frac { 3 }{ 8 } -\frac { 3 }{ 8 }  \right) \\
+        &= \frac { 14 }{ 8 } \\
+        &= 1.75
+    \end{align*}
+  \item
+    \begin{align*}
+      H &= -\sum _{ i=1 }^{ 4 }{ P(i)\log _{ 2 }{ P(i) }  } \\
+        &= -\left( 0.505\log _{ 2 }{ 0.505+\frac { 1 }{ 4 } \log _{ 2 }{ \frac { 1 }{ 4 } +\frac { 1 }{ 8 } \log _{ 2 }{ \frac { 1 }{ 8 } +0.12\log _{ 2 }{ 0.12 }  }  }  }  \right) \\
+        &= 1.74 
+    \end{align*}
+\end{enumerate}
+
+\end{answer}
+
+\begin{answer}{7}
+  \begin{enumerate}[(a)]
+    \item Generation of words by random model is the fastest method among all four different methods. However, a few of generated words are in the English language. Since random model doesn't give us much information about relations of letters, this is result is plausible. 
+    \item This proposed model improves the achievement of generation words with randomness by incorporating cumulative distribution function (CDF). CDF values give us insight how many of each letter is occurred. CDF values express the likelihood of the occurrence of a given letter, so the higher probability is the more occurrence of letters. In the following Table \ref{cdf-table} shows us CDF values of each letter.
+    \begin{table}[h!]
+      \centering
+      \begin{tabular}{ccccc}
+        \hline
+        Letter  &  Cumulative Frequency  &  Cumulative Relative Frequency  &  Frequency  &  Relative Frequency\\
+        \hline
+        a  &  852  &  0.099  &  852  &  0.099\\
+        b  &  1099  &  0.128  &  247  &  0.029\\
+        c  &  1350  &  0.157  &  251  &  0.029\\
+        d  &  1689  &  0.196  &  339  &  0.039\\
+        e  &  2538  &  0.295  &  849  &  0.099\\
+        f  &  2731  &  0.318  &  193  &  0.022\\
+        g  &  2944  &  0.342  &  213  &  0.025\\
+        h  &  3214  &  0.374  &  270  &  0.031\\
+        i  &  3704  &  0.431  &  490  &  0.057\\
+        j  &  3758  &  0.437  &  54  &  0.006\\
+        k  &  3989  &  0.464  &  231  &  0.027\\
+        l  &  4583  &  0.533  &  594  &  0.069\\
+        m  &  4869  &  0.566  &  286  &  0.033\\
+        n  &  5330  &  0.620  &  461  &  0.054\\
+        o  &  5988  &  0.697  &  658  &  0.077\\
+        p  &  6263  &  0.729  &  275  &  0.032\\
+        q  &  6272  &  0.730  &  9  &  0.001\\
+        r  &  6769  &  0.787  &  497  &  0.058\\
+        s  &  7210  &  0.839  &  441  &  0.051\\
+        t  &  7694  &  0.895  &  484  &  0.056\\
+        u  &  8042  &  0.936  &  348  &  0.040\\
+        v  &  8150  &  0.948  &  108  &  0.013\\
+        w  &  8339  &  0.970  &  189  &  0.022\\
+        x  &  8372  &  0.974  &  33  &  0.004\\
+        y  &  8553  &  0.995  &  181  &  0.021\\
+        z  &  8596  &  1.000  &  43  &  0.005\\
+        \hline
+      \end{tabular}
+      \caption{Cumulative Frequencies of English Alphabet.}
+      \label{cdf-table}
+    \end{table}
+    \item Although CDF values two letters are high, it doesn't mean that they occur one after the other. Single-letter context model gives more information than two preceding models. In this model, we determine how many times letter $i$ comes after letter $j$ to be able to obtain more meaningful outcomes. Indeed, its result is much better than the result of CDF. In order to start generation of words, we first pick a random letter by satisfying the given condition ($F_X(x_k - 1) \leq r < F_X(x_k)$). Then we choose the next letter according to new CDF values which contain the information about the number of occurrence letter $i$ comes after letter $j$.
+    \item Two-letter context model has the same idea as single-letter counterpart. As expected, it gives more information than the single-letter context model. For instance, obtaining a letter $i$ after $jj$ has the lower probability than obtaining a letter $i$ after $j$. The drawback of this model is its running time performance which is much slower than of single-letter context model. However, its achievement rate is higher than of single-letter context model. To be able to start word generation, we first pick 2 letters from the CDF model. We didn't pick the second letter from the single-letter context model, because we want to compare their achievement by taking the CDF model as a base. Since some letters $i$'s are never occurred after $jj$'s, we restricted the generation process with $n$ trials. If 4-letter word can not be generated after n trials, we start the generation process from the scratch.
+  \end{enumerate}
+  In the following Table \ref{achievement} shows the number of words that are in the English language that each model could find. In Table \ref{performance} shows their running time in seconds.
+  \begin{table}[h!]
+    \centering
+    \begin{tabular}{cccc}
+      \hline
+      Random & CDF Model & Single Letter & Two Letter\\
+      \hline
+      2 & 11 & 26 & 35\\
+      \hline
+    \end{tabular}
+    \caption{Achievement Rates Different Methods To Obtain An English Word In Terms Of Number Of Words.}
+    \label{achievement}
+  \end{table}
+  \begin{table}[h!]
+    \centering
+    \begin{tabular}{cccc}
+      \hline
+      Random & CDF Model & Single Letter & Two Letter\\
+      \hline
+      0.0004 & 0.0107 & 5.89 & 499.63\\
+      \hline
+    \end{tabular}
+    \caption{Runtime Performance Of Different Methods.}
+    \label{performance}
+  \end{table}
+\end{answer}
+
+\clearpage
+\begin{answer}{8}
+\begin{enumerate}[(a)]
+  \item
+    Consider C = $\left\{0, 01, 11, 111\right\}$. Applying the Sardinas-Patterson algorithm we get:
+    \begin{align*}
+      { C }_{ 1 } &= \left\{1\right\} \\
+      { C }_{ 2 } &= \left\{11\right\} \\
+      { C }_{ 2 }\cap C&=\left\{ 11 \right\}
+    \end{align*}
+    So the code C is not uniquely decodable.
+  \item
+    Consider C = $\left\{0, 01, 110, 111\right\}$. Applying the Sardinas-Patterson algorithm we get:
+    \begin{align*}
+      { C }_{ 1 } &= \left\{1\right\} \\
+      { C }_{ 2 } &= \left\{10, 11\right\} \\
+      { C }_{ 3 } &= \left\{0\right\} \\
+      { C }_{ 3 }\cap C&=\left\{ 0 \right\}      
+    \end{align*}
+    So the code C is not uniquely decodable.
+  \item
+  Consider C = $\left\{0, 10, 110, 111\right\}$. Applying the Sardinas-Patterson algorithm we get:
+    \begin{align*}
+      { C }_{ 1 } &= \left\{\right\} \\
+      { C }_{ 3 }\cap C&=\left\{\right\}      
+    \end{align*}
+    So the code C is uniquely decodable.
+  \item
+    Consider C = $\left\{1, 10, 110, 111\right\}$. Applying the Sardinas-Patterson algorithm we get:
+    \begin{align*}
+      { C }_{ 1 } &= \left\{0, 10, 11\right\} \\
+      { C }_{ 2 } &= \left\{1\right\} \\
+      { C }_{ 2 }\cap C&=\left\{ 1 \right\}
+    \end{align*}
+    So the code C is not uniquely decodable.
+\end{enumerate}
+
+\end{answer}
+
+\begin{answer}{7 - Source Code}
+\lstinputlisting{hw1.py}
+\end{answer}
+
+\section{Appendix}
+Source code can be found in this URL: \url{https://github.com/haluk/data-compression}
+\begin{verbatim}
+Random Model:
+=============
+ghlh-leis-vnqs-qmsd-wjzl-pihk-xcmj-vowp-urdl-qpru-tpny
+apwl-upkx-paud-kzpl-puci-cadr-eovb-lxwe-letp-pcwv-xted
+bzko-dfsz-nhnk-gxir-mjet-ueby-bmna-pirn-llcw-dvrt-ydmh
+snlx-bpqs-tzlq-gkwy-czdz-hwqs-jnsl-exnz-dfkb-kduv-ypkf
+bfjn-ooiq-jfbq-kpoq-lles-dwxe-qyct-toby-aztw-dsry-onrb
+lvwb-nodv-cysy-bpsc-ihap-zqco-wqwu-khaj-qbqh-ckon-lkfh
+ucdh-nvht-rsid-hmkw-jygn-ugks-hwip-afim-ircw-tkvn-meob
+jvgb-ublj-dlbl-pnyp-ogbv-qeou-sfmf-nkzs-lmhg-sjra-oequ
+honm-nxtz-atpm-ihdi-qoin-jbbq-pusp-vicl-cszw-cpvf-uusq-xlxy
+
+CDF Model:
+==========
+zldg-geth-lloe-lveg-gdey-ddbi-ello-rolz-glfi-rine-tenr
+tycg-sbos-jexu-ytos-uuli-koeu-skim-nfpl-slhl-hlst-sytn
+lhzp-myep-hehu-pfmh-enrw-enel-obnr-idui-revl-lpcw-duks
+ului-koos-dooe-mvus-endg-swje-drfs-ofet-ckcn-nolt-wnyr
+illy-sohe-uers-rvst-hste-wymt-ulnu-sopl-delf-seot-bsed
+dhog-eolr-oosf-euut-lrke-lplt-snsb-mcrr-irkw-slkl-lgol
+eyko-eoro-eylr-elsv-otnu-upps-elcs-jove-cpdl-sicd-lcsc
+sdrn-uuss-byer-oeqe-tcwt-uxlu-ptse-csmk-reud-npoc-fuft
+dpwo-elst-gkil-etti-xfel-stnn-meet-elst-ttum-lomu-remi-wfee
+
+Single Letter Context:
+======================
+loon-umpi-orch-jull-icus-pere-tthe-ling-oled-geri-regy
+slel-rynk-irok-drtc-bilo-este-cesn-cken-geld-teto-lffo
+yesh-pelo-sken-nthr-soke-mees-olol-peco-icok-ulep-rysh
+ingr-exon-ptei-oflu-crur-hope-heto-summ-ssnt-yono-obog
+celf-ucok-rive-dile-onem-urip-euti-yprk-bese-sito-poel
+ckir-leli-troo-nere-egoi-stol-etim-dese-skic-eren-yoro
+hele-eenk-kint-iloo-liso-blte-otey-selt-bero-eyee-ufos
+esck-onon-lued-shol-oubu-pool-ypol-ntur-eelk-odoc-tusl
+okew-woor-uter-sene-romb-thol-lyso-ussi-ebur-okef-nyun-mond
+
+Two Letter Context:
+===================
+user-iski-edgy-iwic-cmen-eudy-shor-weet-twiv-dodd-ilto
+lend-ebbe-bree-selt-hunt-yell-orty-iusy-iush-swis-elly
+iwit-psoo-sudo-ueto-ooke-elso-ient-oope-styx-esti-hird
+goft-ieve-eire-ecky-oeye-uedg-rmyr-gwel-rewy-gild-ynne
+pres-yero-klur-uspi-nump-seep-drun-ooke-eont-ocky-eyst
+estu-polk-inyx-coin-herr-xity-tone-crew-cobe-lure-clil
+feen-ucho-iker-eude-hyde-effy-uell-bome-yste-loss-plee
+serf-lpso-uxen-oilt-emon-fnix-uezr-sure-eong-eily-nill
+ldye-ment-frop-oree-ieub-ikee-sluk-ntem-flux-oped-edir-klum
+\end{verbatim}
+
+\end{document}
